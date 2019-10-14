@@ -1,6 +1,19 @@
 ## Golang interview questions
 ### Table of Contents
-1. [What are different data types in go?](#What-are-different-data-types-in-go?)
+1. [What are different data types in go?](#what-are-different-data-types-in-go?)
+2. [How do you copy maps](#how-do-you-copy-maps)
+
+## This is the introduction <a name="introduction"></a>
+Some introduction text, formatted in heading 2 style
+
+## Some paragraph <a name="paragraph1"></a>
+The first paragraph text
+
+### Sub paragraph <a name="subparagraph1"></a>
+This is a sub paragraph, formatted in heading 3 style
+
+## Another paragraph <a name="paragraph2"></a>
+The second paragraph text
 
 #### What are different data types in go?
 int8(aka byte), int16, int32(aka rune), int64
@@ -216,7 +229,7 @@ copy(s2, s1)
 fmt.Println(s1)
 fmt.Println(s2)
 ```
-##### How do you copy maps?
+## How do you copy maps?
 
 ##### How do you copy interfaces?
 
