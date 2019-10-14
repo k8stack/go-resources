@@ -37,6 +37,7 @@ using range keyword
 #### What is a go routine ?
 A goroutine is a  lightweight thread managed by the Go runtime
 
+
 #### How to create go routine in go?
 
 #### What are channels in go?
@@ -84,6 +85,23 @@ func main() {
 
 #### How do you declare inline function?
 inline function is an anonymous function used 
+
+Simple 
+```
+func(){ 
+
+  fmt.Println("Hello") 
+}() 
+	
+```
+Assigning
+```
+value := func(){ 
+  fmt.Println("Welcome! to GeeksforGeeks") 
+} 
+value() 
+	
+```
 
 #### What is the use of empty interface?
 Interface has two meanings 
