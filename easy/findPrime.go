@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 func IsPrime(value int) bool {
     for i := 2; i <= int(math.Floor(float64(value) / 2)); i++ {
@@ -12,5 +15,5 @@ func IsPrime(value int) bool {
 }
 
 func main() {
-
+  fmt.Println(IsPrime(10))
 }
