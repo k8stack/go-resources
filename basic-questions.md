@@ -1,6 +1,6 @@
 ## Golang interview questions
 ### Table of Contents
-1. [What are different data types in go?](#what-are-different-data-types-in-go?)
+1. [What are different data types in go?](#what-are-different-data-types-in-go)
 2. [How do you copy maps](#how-do-you-copy-maps)
 
 ## This is the introduction <a name="introduction"></a>
