@@ -22,7 +22,7 @@ It specifies the go workspace
 Array - fixed length
 Slice - variable length
 Maps - key values
-Struct - typed 
+Struct - is a collection of fields of same/diff types
 
 #### How to iterate maps in go?
 
