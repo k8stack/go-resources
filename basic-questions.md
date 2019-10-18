@@ -29,9 +29,22 @@ a package is a directory where all go files resides.
 a workspace is a directory heirarchy with two root directories,
  - src -> go source files (typically contains multiple vcs based directories example, github.com)
  - bin -> executable files
-
+ - pkg -> shared libs used by executables, example: go mod dependencies 
 ##### what is GOPATH?
 It specifies the go workspace 
+
+##### what are different directories inside a go project?
+- cmd -> will have sub-directories for cli based
+- pkg -> if you need your code to be re-used by other projects (careful with this)
+- internal -> if you want your code to be private 
+- api -> openapi/swagger
+- web -> web components
+- configs -> configurations
+- init -> system init/process manager (systemd, sysv etc..)
+- scripts -> build/installs
+- build -> for deb,rpm,ami,docker images etc..
+- deployments -> docker-compose, k8s yaml, terraform etc. 
+- test -> testing 
 
 ##### What are different data structures in go?
 Array - fixed length
