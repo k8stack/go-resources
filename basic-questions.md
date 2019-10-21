@@ -1,19 +1,31 @@
 ## Golang interview questions
 ### Table of Contents
-1. [What are different data types in go?](#what-are-different-data-types-in-go)
-2. [How do you copy maps](#how-do-you-copy-maps)
-
-## This is the introduction <a name="introduction"></a>
-Some introduction text, formatted in heading 2 style
-
-## Some paragraph <a name="paragraph1"></a>
-The first paragraph text
-
-### Sub paragraph <a name="subparagraph1"></a>
-This is a sub paragraph, formatted in heading 3 style
-
-## Another paragraph <a name="paragraph2"></a>
-The second paragraph text
+1. [What are different data types in go](#what-are-different-data-types-in-go)
+2. [what is a package in go](#what is a package in go)
+3. [what is go workspace](#what is go workspace)
+4. [what is GOPATH](#what is GOPATH)
+5. [what are different directories inside a go project](#what are different directories inside a go project)
+6. [What are different data structures in go](#What are different data structures in go)
+7. [How to iterate maps in go](#How to iterate maps in go)
+12. [How do you create go modules](#How do you create go modules)
+13. [Explain go modules](#Explain go modules)
+14. [Function syntax in go](#Function syntax in go)
+15. [Method syntax in go](#Method syntax in go)
+16. [How do you declare inline function](#How do you declare inline function)
+17. [What is the use of empty interface](#What is the use of empty interface)
+18. [How access modifiers work in go](#How access modifiers work in go)
+19. [what is GOPATH and GOROOT](#what is GOPATH and GOROOT)
+20. [Explain polymorphism in go](#Explain polymorphism in go)
+21. [Explain different print formats](#Explain different print formats)
+22. [What is defautl value of a global, local, & pointer variable](#What is defautl value of a global, local, & pointer )variable
+23. [Does go support method overloading, operator overloading, type inheritance](#Does go support method overloading, operator )overloading, type inheritance
+24. [Write a program on pointers](#Write a program on pointers)
+25. [How do you copy slices](#How do you copy slices)
+26. [How do you copy interfaces](#How do you copy interfaces)
+27. [How do you compare two structs](#How do you compare two structs)
+28. [How do you compare two interfaces](#How do you compare two interfaces)
+29. [Explain go get command](#Explain go get command)
+30. [How do you do indentation](#How do you do indentation)
 
 #### What are different data types in go?
 int8(aka byte), int16, int32(aka rune), int64
@@ -23,28 +35,28 @@ bool,
 string
 
 ##### what is a package in go?
-a package is a directory where all go files resides. 
+a package is a directory where all go files resides.
 
 ##### what is go workspace?
 a workspace is a directory heirarchy with two root directories,
  - src -> go source files (typically contains multiple vcs based directories example, github.com)
  - bin -> executable files
- - pkg -> shared libs used by executables, example: go mod dependencies 
+ - pkg -> shared libs used by executables, example: go mod dependencies
 ##### what is GOPATH?
-It specifies the go workspace 
+It specifies the go workspace
 
 ##### what are different directories inside a go project?
 - cmd -> will have sub-directories for cli based
 - pkg -> if you need your code to be re-used by other projects (careful with this)
-- internal -> if you want your code to be private 
+- internal -> if you want your code to be private
 - api -> openapi/swagger
 - web -> web components
 - configs -> configurations
 - init -> system init/process manager (systemd, sysv etc..)
 - scripts -> build/installs
 - build -> for deb,rpm,ami,docker images etc..
-- deployments -> docker-compose, k8s yaml, terraform etc. 
-- test -> testing 
+- deployments -> docker-compose, k8s yaml, terraform etc.
+- test -> testing
 
 ##### What are different data structures in go?
 Array - fixed length
@@ -61,16 +73,6 @@ using range keyword
     fmt.Printf("key[%s] value[%s]\n", k, v)
   }
 ```
-
-##### What is a go routine ?
-A goroutine is a  lightweight thread managed by the Go runtime
-
-
-##### How to create go routine in go?
-
-##### What are channels in go?
-
-##### Explain race condition in go?
 
 ##### How do you create go modules?
 using init command
@@ -112,29 +114,28 @@ func main() {
 ```
 
 ##### How do you declare inline function?
-inline function is an anonymous function used 
+inline function is an anonymous function used
 
-Simple 
+Simple
 ```go
-func(){ 
+func(){
 
-  fmt.Println("Hello") 
-}() 
-	
+  fmt.Println("Hello")
+}()
 ```
 Assigning
 ```go
-value := func(){ 
-  fmt.Println("Welcome! to GeeksforGeeks") 
-} 
-value() 
+value := func(){
+  fmt.Println("Welcome! to GeeksforGeeks")
+}
+value()
 ```
 
 ##### What is the use of empty interface?
-Interface has two meanings 
+Interface has two meanings
  - interface is a set of method declaration
  - emtpy interface is a type used to dynamic type conversion
-   - Example, 
+   - Example,
      You can pass int or float, its dynamic
      ```
      func add (x interface{}, y interface{}) {
@@ -198,7 +199,7 @@ func main(){
 
 ##### Write a program on pointers
 
-Swapping two variables 
+Swapping two variables
 
 ```go
 package main
@@ -249,3 +250,24 @@ fmt.Println(s2)
 ##### How do you compare two structs?
 
 ##### How do you compare two interfaces?
+
+##### Explain go get command
+go get is used for installations,
+suppose if you are installing golint, you do,
+```go
+go get -u golang.org/x/lint/golint
+```
+`the source code of `golint` will be downloaded and copied to $GOPATH/src/golang.org/x/lint`
+and the binary `golint` will be copied to `$GOPATH/bin`
+since this is added to PATH	during installation, the binary will be
+available to the system
+
+##### How do you do indentation
+using `go fmt`,
+example,
+```go
+go fmt hello.go
+```
+go fmt by default uses tabs & spaces are not longer used/recommended.
+
+##### How do you prevent a race condtion?
