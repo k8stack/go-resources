@@ -26,6 +26,8 @@
 28. [How do you compare two interfaces](#How do you compare two interfaces)
 29. [Explain go get command](#Explain go get command)
 30. [How do you do indentation](#How do you do indentation)
+31. [Explain closures in go](#Explain closures in go)
+32. [How to increase slice capacity](#how to increase slice capacity?)
 
 #### What are different data types in go?
 int8(aka byte), int16, int32(aka rune), int64
@@ -270,4 +272,40 @@ go fmt hello.go
 ```
 go fmt by default uses tabs & spaces are not longer used/recommended.
 
-##### How do you prevent a race condtion?
+##### Explain closures in go
+
+```go
+package main
+import "fmt"
+var global func()
+func closure() {
+ var A int = 1
+ func() {
+  var B int = 2
+  func() {
+   var C int = 3
+   global = func() {
+    fmt.Println(A, B, C)
+    fmt.Println(D, E, F) // causes compilation error
+   }
+   var D int = 4
+  }()
+  var E int = 5
+ }()
+ var F int = 6
+}
+func main() {
+ closure()
+ global()
+}
+```
+**global function has access to,**
+- It has access to A,B,C since the layer of enclosure does not matter
+- It doesn’t have access to D,E,F since their declaration don’t precede
+- Even after execution of “closure” function, it’s local variables were not destroyed. They were accessible in the call to “global” function
+
+
+##### How to increase slice capacity?
+```go
+s = s[:cap(s)]
+```

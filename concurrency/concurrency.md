@@ -56,3 +56,31 @@ func main() {
 ##### How do you prevent a race condtion?
 
 ##### What are channels in go?
+A channel is a data transfer pipe between go routines where
+data can be passed into and read from.
+
+*a channel can transport data of only one data type.*
+
+##### Channel example
+```go
+func main(){
+	c:=make(chan int)
+    fmt.Println("%T", c)
+    fmt.Println("%V", c)
+}
+```
+output will be a memory address,
+*Channels by default are pointers*
+
+##### What are bufferred and unbuffered channels?
+```go
+// unbuffered channel of ints
+ic := make(chan int)
+
+// buffered channel with room for 10 strings
+sc := make(chan string, 10)
+```
+
+##### How do you close channels?
+using 	`close(ch)`
+
