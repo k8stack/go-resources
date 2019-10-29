@@ -30,10 +30,12 @@ func init() {
 // export fields to templates
 // fields changed to uppercase
 type Book struct {
+	Id     string
 	Isbn   string
 	Title  string
 	Author string
 	Price  float32
+	Rating string
 }
 
 func main() {
@@ -143,8 +145,9 @@ func booksCreateProcess(w http.ResponseWriter, r *http.Request) {
 	bk.Price = float32(f64)
 
 	// insert values
-	_, err = db.Exec("INSERT INTO books (isbn, title, author, price) VALUES (?,?,?,?)", bk.Isbn, bk.Title, bk.Author, bk.Price)
+	_, err = db.Exec("INSERT INTO books (isbn, title, author, price, rating) VALUES (?,?,?,?,?,?)", bk.Isbn, bk.Title, bk.Author, bk.Price, bk.Rating)
 	if err != nil {
+		fmt.Println("error inserting database",err)
 		http.Error(w, http.StatusText(500), http.StatusInternalServerError)
 		return
 	}
@@ -168,7 +171,7 @@ func booksUpdateForm(w http.ResponseWriter, r *http.Request) {
 	row := db.QueryRow("SELECT * FROM books WHERE isbn = ?", isbn)
 
 	bk := Book{}
-	err := row.Scan(&bk.Isbn, &bk.Title, &bk.Author, &bk.Price)
+	err := row.Scan(&bk.Isbn, &bk.Title, &bk.Author, &bk.Price, &bk.Rating)
 	switch {
 	case err == sql.ErrNoRows:
 		http.NotFound(w, r)
@@ -208,9 +211,9 @@ func booksUpdateProcess(w http.ResponseWriter, r *http.Request) {
 	bk.Price = float32(f64)
 
 	// insert values
-	_, err = db.Exec("UPDATE books SET isbn = ?, title=?, author=?, price=? WHERE isbn=?;", bk.Isbn, bk.Title, bk.Author, bk.Price, bk.Isbn)
+	_, err = db.Exec("UPDATE books SET isbn = ?, title=?, author=?, price=?, rating=? WHERE isbn=?;", bk.Isbn, bk.Title, bk.Author, bk.Price, bk.Isbn, bk.Rating)
 	if err != nil {
-		fmt.Println("error updating",err)
+		fmt.Println("error updating", err)
 		http.Error(w, http.StatusText(500), http.StatusInternalServerError)
 		return
 	}
