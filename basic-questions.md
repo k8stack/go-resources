@@ -309,3 +309,19 @@ func main() {
 ```go
 s = s[:cap(s)]
 ```
+
+##### How to convert string to int?
+
+```
+package main
+
+import (
+	"fmt"
+	"strconv"
+)
+s := "123"
+num,_ := strconv.Atoi(s)
+fmt.Println(num)
+```
+
+
