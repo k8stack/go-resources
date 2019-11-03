@@ -39,14 +39,14 @@
 
 ## What are different data types in go?
 
-- int8(aka byte)
-- int16
-- int32(aka rune, pronounced as roon (as room))
-- int64
-- float64
-- byte
-- bool
-- string
+- __int8__(aka byte)
+- __int16__
+- __int32__(aka rune, pronounced as roon (as room))
+- __int64__
+- __float64__
+- __byte__
+- __bool__
+- __string__
 
 ## what is a package in go?
 a package is a directory where all go files resides.
