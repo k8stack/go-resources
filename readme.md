@@ -54,9 +54,9 @@ a package is a directory where all go files resides.
 ## what is go workspace?
 a workspace is a directory heirarchy with two root directories,
 
- - src -> go source files (typically contains multiple vcs based directories example, github.com)
- - bin -> executable files
- - pkg -> shared libs used by executables, example: go mod dependencies
+ - __src__ -> go source files (typically contains multiple vcs based directories example, github.com)
+ - __bin__ -> executable files
+ - __pkg__ -> shared libs used by executables, example: go mod dependencies
 
 
 ## what is GOPATH?
@@ -64,25 +64,25 @@ It specifies the go workspace
 
 ## what are different directories inside a go project?
 
-- cmd -> will have sub-directories for cli based
-- pkg -> if you need your code to be re-used by other projects (careful with this)
-- internal -> if you want your code to be private
-- api -> openapi/swagger
-- web -> web components
-- configs -> configurations
-- init -> system init/process manager (systemd, sysv etc..)
-- scripts -> build/installs
-- build -> for deb,rpm,ami,docker images etc..
-- deployments -> docker-compose, k8s yaml, terraform etc.
-- test -> testing
+- __cmd__ -> will have sub-directories for cli based
+- __pkg__ -> if you need your code to be re-used by other projects (careful with this)
+- __internal__ -> if you want your code to be private
+- __api__ -> openapi/swagger
+- __web__ -> web components
+- __configs__ -> configurations
+- __init__ -> system init/process manager (systemd, sysv etc..)
+- __scripts__ -> build/installs
+- __build__ -> for deb,rpm,ami,docker images etc..
+- __deployments__ -> docker-compose, k8s yaml, terraform etc.
+- __test__ -> testing
 
 
 ## What are different data structures in go?
 ```go
-Array - fixed length
-Slice - variable length
-Maps - key values
-Struct - is a collection of fields of same/diff types
+__Array__ - fixed length
+__Slice__ - variable length
+__Maps__ - key values
+__Struct__ - is a collection of fields of same/diff types
 ```
 
 ## How to iterate maps in go?
