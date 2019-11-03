@@ -17,8 +17,8 @@
 19. [what is GOPATH and GOROOT](#what is GOPATH and GOROOT)
 20. [Explain polymorphism in go](#Explain polymorphism in go)
 21. [Explain different print formats](#Explain different print formats)
-22. [What is defautl value of a global, local, & pointer variable](#What is defautl value of a global, local, & pointer )variable
-23. [Does go support method overloading, operator overloading, type inheritance](#Does go support method overloading, operator )overloading, type inheritance
+22. [What is defautl value of a global, local, & pointer variable](#What is defautl value of a global, local, & pointer variable)
+23. [Does go support method overloading, operator overloading, type inheritance](#Does go support method overloading, operator overloading, type inheritance)
 24. [Write a program on pointers](#Write a program on pointers)
 25. [How do you copy slices](#How do you copy slices)
 26. [How do you copy interfaces](#How do you copy interfaces)
@@ -28,6 +28,11 @@
 30. [How do you do indentation](#How do you do indentation)
 31. [Explain closures in go](#Explain closures in go)
 32. [How to increase slice capacity](#how to increase slice capacity?)
+33. [How to convert string to int](#How to convert string to int)
+34. [What is & and * in go](#What is & and * in go)
+35. [Explain ++ and -- in golang](#Explain ++ and -- in golang)
+36. [Does go support indexing](#Does go support indexing)
+37. [How to convert string to byte array & viceversa](#How to convert string to byte array & viceversa)
 
 #### What are different data types in go?
 int8(aka byte), int16, int32(aka rune), int64
@@ -346,9 +351,23 @@ func main(){
 ##### Explain ++ and -- in golang?
 
 ++ and -- are statements but not expressions
-![](https://stackoverflow.com/questions/25800242/go-golang-syntax-error-unexpected-expecting)
+[check here](https://stackoverflow.com/questions/25800242/go-golang-syntax-error-unexpected-expecting)
 
 
 ##### Does go support indexing?
 
-![](https://flaviocopes.com/golang-does-not-support-indexing/)
+[check here](https://flaviocopes.com/golang-does-not-support-indexing/)
+
+##### How to convert string to byte array & viceversa?
+
+__string to byte array__
+```go
+b := []byte("ABC€")
+fmt.Println(b) // [65 66 67 226 130 172]
+```
+
+__byte array to string__
+```go
+s := string([]byte{65, 66, 67, 226, 130, 172})
+fmt.Println(s)
+```
