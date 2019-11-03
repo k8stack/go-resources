@@ -356,6 +356,14 @@ func main() {
   ```
 ## How do you compare two interfaces?
 
+Using assignment operator
+```go
+  var z interface{} = 2
+  var y interface{} = 2
+
+  fmt.Println(z == y)
+```
+
 ## Explain go get command
 go get is used for installations,
 suppose if you are installing golint, you do,
