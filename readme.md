@@ -38,33 +38,32 @@
 ![](https://josiaholson.com/images/golang-ds-gopher.jpg)
 
 ## What are different data types in go?
-```go
-int8(aka byte)
-int16
-int32(aka rune, pronounced as roon (as room))
-int64
-float64
-byte
-bool
-string
-```
+
+- int8(aka byte)
+- int16
+- int32(aka rune, pronounced as roon (as room))
+- int64
+- float64
+- byte
+- bool
+- string
 
 ## what is a package in go?
 a package is a directory where all go files resides.
 
 ## what is go workspace?
 a workspace is a directory heirarchy with two root directories,
-```go
+
  - src -> go source files (typically contains multiple vcs based directories example, github.com)
  - bin -> executable files
  - pkg -> shared libs used by executables, example: go mod dependencies
-```
+
 
 ## what is GOPATH?
 It specifies the go workspace
 
 ## what are different directories inside a go project?
-```go
+
 - cmd -> will have sub-directories for cli based
 - pkg -> if you need your code to be re-used by other projects (careful with this)
 - internal -> if you want your code to be private
@@ -76,7 +75,7 @@ It specifies the go workspace
 - build -> for deb,rpm,ami,docker images etc..
 - deployments -> docker-compose, k8s yaml, terraform etc.
 - test -> testing
-```
+
 
 ## What are different data structures in go?
 ```go
