@@ -21,8 +21,8 @@
 19. [Does go support method overloading, operator overloading, type inheritance](#Does-go-support-method-overloading,-operator-overloading,-type-inheritance)
 20. [Write a program on pointers](#Write-a-program-on-pointers)
 21. [How do you copy slices](#How-do-you-copy-slices)
-22. [How do you copy interfaces](#How-do-you-copy-interfaces)
-23. [How do you compare two structs](#How-do-you-compare-two-structs)
+22. [How do you copy interfaces and structs](#How-do-you-copy-interfaces-and-structs)
+23. [How do you compare two structs maps and slices](#How-do-you-compare-two-structs-maps-and-slices)
 24. [How do you compare two interfaces](#How-do-you-compare-two-interfaces)
 25. [Explain go get command](#Explain-go-get-command)
 26. [How do you do indentation](#How-do-you-do-indentation)
@@ -134,7 +134,7 @@ func(){
 Assigning
 ```go
 value := func(){
-  fmt.Println("Welcome! to GeeksforGeeks")
+  fmt.Println("Hello")
 }
 value()
 ```
@@ -197,6 +197,13 @@ func main(){
 ```
 
 ## Explain different print formats
+Printf -> formats and prints
+Sprintf -> formats and doesn't prints, needs to be assigned
+
+%d -> digit
+%s -> string
+%T -> type
+%v -> default format
 
 ## What is defautl value of a global, local, & pointer variable?
   global -> 0
@@ -204,6 +211,9 @@ func main(){
   pointer -> nil
 
 ## Does go support method overloading, operator overloading, type inheritance?
+method overloading -> no
+operator overloading -> -
+type inheritance -> -
 
 ## Write a program on pointers
 
@@ -267,10 +277,53 @@ To copy maps you need to iterate values over the map
 	fmt.Print(m2)
 ```
 
-## How do you copy interfaces?
+## How do you copy interfaces and structs?
+copying interface means copy the underlying struct, & structs copied using assignment operator
+```go
+type Point struct {
+        x int
+        y int
+}
 
-## How do you compare two structs?
+func main() {
 
+        p1 := Point {2,2}
+        p2 := p1
+
+        fmt.Println(p1)
+        fmt.Println(p2)
+
+}
+```
+## How do you compare two structs maps and slices?
+
+using reflect api,
+
+```go
+type Point struct {
+  x int
+  y int
+}
+
+func main() {
+  m1 := map[string]int{
+    "a": 1,
+    "b": 2,
+  }
+  m2 := map[string]int{
+    "a": 1,
+    "b": 2,
+  }
+  s1 := []byte{'a', 'b', 'c'}
+  s2 := []byte{'c', 'd', 'e'}
+
+  p1 := Point {2,2}
+  p2 := Point {3,3}
+
+  fmt.Println(reflect.DeepEqual(m1, m2))
+  fmt.Println(reflect.DeepEqual(s1, s2))
+  fmt.Println(reflect.DeepEqual(p1, p2))
+  ```
 ## How do you compare two interfaces?
 
 ## Explain go get command
