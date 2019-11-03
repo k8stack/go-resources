@@ -342,3 +342,13 @@ func main(){
 }
 ```
 ![](https://media.geeksforgeeks.org/wp-content/uploads/20190705160332/Pointers-in-Golang.jpg)
+
+##### Explain ++ and -- in golang?
+
+++ and -- are statements but not expressions
+![](https://stackoverflow.com/questions/25800242/go-golang-syntax-error-unexpected-expecting)
+
+
+##### Does go support indexing?
+
+![](https://flaviocopes.com/golang-does-not-support-indexing/)
