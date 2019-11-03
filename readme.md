@@ -145,7 +145,7 @@ Interface has two meanings
  - emtpy interface is a type used to dynamic type conversion
    - Example,
      You can pass int or float, its dynamic
-     ```
+     ```go
      func add (x interface{}, y interface{}) {
        x+y
      }
