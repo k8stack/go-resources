@@ -41,18 +41,19 @@ byte,
 bool,
 string
 
-##### what is a package in go?
+#### what is a package in go?
 a package is a directory where all go files resides.
 
-##### what is go workspace?
+#### what is go workspace?
 a workspace is a directory heirarchy with two root directories,
  - src -> go source files (typically contains multiple vcs based directories example, github.com)
  - bin -> executable files
  - pkg -> shared libs used by executables, example: go mod dependencies
-##### what is GOPATH?
+
+#### what is GOPATH?
 It specifies the go workspace
 
-##### what are different directories inside a go project?
+#### what are different directories inside a go project?
 - cmd -> will have sub-directories for cli based
 - pkg -> if you need your code to be re-used by other projects (careful with this)
 - internal -> if you want your code to be private
@@ -65,13 +66,13 @@ It specifies the go workspace
 - deployments -> docker-compose, k8s yaml, terraform etc.
 - test -> testing
 
-##### What are different data structures in go?
+#### What are different data structures in go?
 Array - fixed length
 Slice - variable length
 Maps - key values
 Struct - is a collection of fields of same/diff types
 
-##### How to iterate maps in go?
+#### How to iterate maps in go?
 
 using range keyword
 ```go
@@ -81,23 +82,23 @@ using range keyword
   }
 ```
 
-##### How do you create go modules?
+#### How do you create go modules?
 using init command
 ```go
 go module init
 ````
 
-##### Explain go modules
+#### Explain go modules
 Go module is a dependency management system introduced from go v1.11
 a module is a collection of go packages stored in `go.mod` file
 
-##### Function syntax in go?
+#### Function syntax in go?
 ```go
 func add(x int32, y int32) return int32 {
   return x+y
 }
 ```
-##### Method syntax in go?
+#### Method syntax in go?
 
 ```go
 package main
@@ -120,7 +121,7 @@ func main() {
 }
 ```
 
-##### How do you declare inline function?
+#### How do you declare inline function?
 inline function is an anonymous function used
 
 Simple
@@ -138,7 +139,7 @@ value := func(){
 value()
 ```
 
-##### What is the use of empty interface?
+#### What is the use of empty interface?
 Interface has two meanings
  - interface is a set of method declaration
  - emtpy interface is a type used to dynamic type conversion
@@ -150,7 +151,7 @@ Interface has two meanings
      }
      ```
 
-##### How access modifiers work in go?
+#### How access modifiers work in go?
 there are two types of access modifiers
   - exported (Accessible outside package)
   - unexported (Accessible only within the package)
@@ -162,11 +163,11 @@ USING UPPERCASE WILL EXPORT A METHOD OR VARIABLE TO OUTSIDE PACKAGE
   bar int; // unexported - only accessible wit
 ```
 
-##### what is GOPATH and GOROOT?
+#### what is GOPATH and GOROOT?
 
 GOPATH specifies go workspace and GOROOT specifies go installation directory
 
-##### Explain polymorphism in go?
+#### Explain polymorphism in go?
 
 Polymorphism can be achieved using interface
 
@@ -195,16 +196,16 @@ func main(){
 }
 ```
 
-##### Explain different print formats
+#### Explain different print formats
 
-##### What is defautl value of a global, local, & pointer variable?
+#### What is defautl value of a global, local, & pointer variable?
   global -> 0
   local -> 0
   pointer -> nil
 
-##### Does go support method overloading, operator overloading, type inheritance?
+#### Does go support method overloading, operator overloading, type inheritance?
 
-##### Write a program on pointers
+#### Write a program on pointers
 
 Swapping two variables
 
@@ -242,7 +243,7 @@ s[2] = 3
 s2 := []int{1,2,3}
 fmt.Println(s,s2)
 ```
-##### How do you copy slices?
+#### How do you copy slices?
 ```go
 s1 := []int{1, 2, 3}
 s2 := make([]int, 3)
@@ -252,13 +253,13 @@ fmt.Println(s2)
 ```
 ## How do you copy maps?
 
-##### How do you copy interfaces?
+#### How do you copy interfaces?
 
-##### How do you compare two structs?
+#### How do you compare two structs?
 
-##### How do you compare two interfaces?
+#### How do you compare two interfaces?
 
-##### Explain go get command
+#### Explain go get command
 go get is used for installations,
 suppose if you are installing golint, you do,
 ```go
@@ -269,7 +270,7 @@ and the binary `golint` will be copied to `$GOPATH/bin`
 since this is added to PATH	during installation, the binary will be
 available to the system
 
-##### How do you do indentation
+#### How do you do indentation
 using `go fmt`,
 example,
 ```go
@@ -277,7 +278,7 @@ go fmt hello.go
 ```
 go fmt by default uses tabs & spaces are not longer used/recommended.
 
-##### Explain closures in go
+#### Explain closures in go
 
 ```go
 package main
@@ -310,12 +311,12 @@ func main() {
 - Even after execution of “closure” function, it’s local variables were not destroyed. They were accessible in the call to “global” function
 
 
-##### How to increase slice capacity?
+#### How to increase slice capacity?
 ```go
 s = s[:cap(s)]
 ```
 
-##### How to convert string to int?
+#### How to convert string to int?
 
 ```go
 package main
@@ -329,7 +330,7 @@ num,_ := strconv.Atoi(s)
 fmt.Println(num)
 ```
 
-##### What is & and * in go?
+#### What is & and * in go?
 
 __The & Operator__
 
@@ -348,17 +349,17 @@ func main(){
 ```
 ![](https://media.geeksforgeeks.org/wp-content/uploads/20190705160332/Pointers-in-Golang.jpg)
 
-##### Explain ++ and -- in golang?
+#### Explain ++ and -- in golang?
 
 ++ and -- are statements but not expressions
 [check here](https://stackoverflow.com/questions/25800242/go-golang-syntax-error-unexpected-expecting)
 
 
-##### Does go support indexing?
+#### Does go support indexing?
 
 [check here](https://flaviocopes.com/golang-does-not-support-indexing/)
 
-##### How to convert string to byte array & viceversa?
+#### How to convert string to byte array & viceversa?
 
 __string to byte array__
 ```go
