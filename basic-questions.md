@@ -1,5 +1,5 @@
-## Golang interview questions
-### Table of Contents
+# Golang interview questions
+## Table of Contents
 1. [What are different data types in go](#what-are-different-data-types-in-go)
 2. [what is a package in go](#what-is-a-package-in-go)
 3. [what is go workspace](#what-is-go-workspace)
