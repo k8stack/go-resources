@@ -197,13 +197,20 @@ func main(){
 ```
 
 ## Explain different print formats
+
 Printf -> formats and prints
+
 Sprintf -> formats and doesn't prints, needs to be assigned
 
+```go
 %d -> digit
+
 %s -> string
+
 %T -> type
+
 %v -> default format
+```
 
 ## What is defautl value of a global, local, & pointer variable?
   global -> 0
