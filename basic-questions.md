@@ -312,7 +312,7 @@ s = s[:cap(s)]
 
 ##### How to convert string to int?
 
-```
+```go
 package main
 
 import (
@@ -324,4 +324,21 @@ num,_ := strconv.Atoi(s)
 fmt.Println(num)
 ```
 
+##### What is & and * in go?
 
+__The & Operator__
+
+`&` gives address of a variable
+
+__The * Operator__
+
+\\`*` used to hold the address of a variable
+
+```go
+func main(){
+        var x int = 2;
+        var y *int = &x
+        fmt.Println("Address of x ",y)
+}
+```
+![](https://media.geeksforgeeks.org/wp-content/uploads/20190705160332/Pointers-in-Golang.jpg)
