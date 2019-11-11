@@ -78,12 +78,10 @@ It specifies the go workspace
 
 
 ## What are different data structures in go?
-```go
-__Array__ - fixed length
-__Slice__ - variable length
-__Maps__ - key values
-__Struct__ - is a collection of fields of same/diff types
-```
+- __Array__: fixed length
+- __Slice__: variable length
+- __Maps__: key values
+- __Struct__: is a collection of fields of same/diff types
 
 ## How to iterate maps in go?
 
