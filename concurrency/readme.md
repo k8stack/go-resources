@@ -7,11 +7,13 @@
 4. [Channel synchronization](#channel-synchronization)
 5. [What is the use of Mutex?](#what-is-the-use-of-mutex)
 6. [Explain channel blocking](#explain-channel-blocking)
-7. [How do you make a function thread safe in golang](#How do you make a function thread safe in golang)
+7. [How do you make a function thread safe in golang](#How-do-you-make-a-function-thread-safe-in-golang)
 8. [Explain deadlock condition](#what-is-a-package-in-go)
 9. [What is the difference between concurrency and parallelism?](#what-is-the-difference-between-concurrency-and-parallelism)
+8. [Closing channels](#closing-channels)
 
 ## What is thread safety?
+Thread-safe code only manipulates shared data structures in a manner that ensures that all threads behave properly and fulfill their design specifications without unintended interaction.
 
 ## What is channel?
 A Channel is a  pipes that connect concurrent goroutines.
@@ -98,6 +100,7 @@ mutex.Unlock()
 ```
 
 __With Race Condition__
+
 ```go
 package main  
 import (  
@@ -121,6 +124,7 @@ func main() {
 ```
 
 ## Explain channel blocking 
+
 
 
 
@@ -187,5 +191,40 @@ func main() {
     sendch := make(chan<- int)
     go sendData(sendch)
     fmt.Println(<-sendch)
+}
+```
+
+## Closing channels
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    jobs := make(chan int, 5)
+    done := make(chan bool)
+
+    go func() {
+        for {
+            j, more := <-jobs
+            if more {
+                fmt.Println("received job", j)
+            } else {
+                fmt.Println("received all jobs")
+                done <- true
+                return
+            }
+        }
+    }()
+
+    for j := 1; j <= 3; j++ {
+        jobs <- j
+        fmt.Println("sent job", j)
+    }
+    close(jobs)
+    fmt.Println("sent all jobs")
+
+    <-done
 }
 ```
