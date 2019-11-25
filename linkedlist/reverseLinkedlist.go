@@ -21,17 +21,15 @@ func main(){
 }
 
 func reverseLinkedlist(head *Node) *Node{
-	fmt.Println("=======",*head)
-	if head.Next == nil || head == nil {
+	//note: below condition failed on leetcode submission, 
+	//if head.Next == nil || head == nil {
+	//error: Line 9: panic: runtime error: invalid memory address or nil pointer dereference
+
+	if head == nil || head.Next == nil {
 		return head
 	}
 	p := reverseLinkedlist(head.Next)
-	fmt.Println("*******",*head)
-	fmt.Println("head is",*head)
-	fmt.Println("P is",*p)
-	fmt.Println("before", head.Next.Next)
 	head.Next.Next = head
-	fmt.Println("after", head.Next.Next)
 	head.Next = nil
 	return p
 }
