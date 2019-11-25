@@ -14,11 +14,12 @@ func main() {
 		if s1[i] < s2[j] {
 			s3[k] = s1[i]
 			i++
+			k++
 		} else {
 			s3[k] = s2[j]
 			j++
+			k++
 		}
-	k++
 	}
 
 	//ignore this logic to check the difference
