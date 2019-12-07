@@ -4,10 +4,12 @@ import "fmt"
 
 func main() {
 
-	messages := make(chan string)
+	c := make(chan string)
 
-	go func() { messages <- "ping" }()
+	go func() {
+		c <- "hello"
+	}()
 
-	msg := <-messages
+	msg := <-c
 	fmt.Println(msg)
 }

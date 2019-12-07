@@ -11,7 +11,7 @@ func main() {
 		go func() { //Block-1
 			fmt.Println("####Block-1")
 			x = 2
-			fmt.Println("x is ",x)
+			fmt.Println("x is ", x)
 		}()
 		time.Sleep(100 * time.Millisecond)
 		go func() { //Block-2
