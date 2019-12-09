@@ -56,6 +56,8 @@ func main() {
     fmt.Println(<-messages)
 }
 ```
+####Buffered vs Unbuffered
+![](https://www.ardanlabs.com/images/goinggo/86_guarantee_of_delivery.png)
 
 ## Channel synchronization
 
@@ -112,10 +114,10 @@ func increment(wg *sync.WaitGroup) {
     x = x + 1
     wg.Done()
 }
-func main() {  
+func main() {
     var w sync.WaitGroup
     for i := 0; i < 1000; i++ {
-        w.Add(1)        
+        w.Add(1)
         go increment(&w)
     }
     w.Wait()
@@ -123,10 +125,18 @@ func main() {
 }
 ```
 
-## Explain channel blocking 
+## Explain channel blocking
 
+**Read Blocking**
+If you are trying to read data from a channel but channel does not have a value available with it, it blocks the current goroutine and unblocks other in a hope that some goroutine will push a value to the channel. Hence, this read operation will be blocking
 
+**Send Blocking**
+Similarly, if you are to send data to a channel, it will block current goroutine and unblock others until some goroutine reads the data from it. Hence, this send operation will be blocking
 
+**Default behaviour**
+Sends and receives to a channel are blocking by default. What does this mean? When a data is sent to a channel, the control is blocked in the send statement until some other Goroutine reads from that channel. Similarly when data is read from a channel, the read is blocked until some Goroutine writes data to that channel.
+
+This property of channels is what helps Goroutines communicate effectively without the use of explicit locks or conditional variables that are quite common in other programming languages
 
 ## How do you make a function thread safe in golang?
 Using Mutex
@@ -171,12 +181,24 @@ func main() {
     ch <- 5
 }
 ```
+![](https://miro.medium.com/max/601/1*esw_FDWZXB-3o2gA4buRpA.jpeg)
+![](https://miro.medium.com/max/601/1*cZY2BoVrw7OSpl2-r-g5yA.jpeg)
 
 ## What is the difference between concurrency and parallelism?
 
 ![](http://www.yosefk.com/img/n/concurrency-centric.png)
 
 ## Unidirectional channels
+
+By default, channels are bi-directional (send-recieve). They can be made uni-directional (send-only/recieve-only)
+
+```
+ch1 := make(<-chan int) //read-only
+ch2 := make(chan<- int) //send-only
+```
+
+But what is the use of unidirectional channel? Using unidirectional channels increases the type-safety of a program. Hence the program is less prone to error.
+
 
 ```go
 package main
@@ -195,6 +217,15 @@ func main() {
 ```
 
 ## Closing channels
+
+A channel can be closed so that no more data can be sent through it.
+
+How to check if a channel is closed or open?
+```
+val, ok := <- channel
+```
+ok -> true //channel is open
+ok -> false //chananel is closed
 
 ```go
 package main
