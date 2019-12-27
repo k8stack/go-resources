@@ -1,0 +1,11 @@
+syntax = "proto3";
+package user;
+option go_package = "userpb";
+
+enum EyeColor {
+    UNKNOWN_EYE_COLOR = 0;
+    BLUE_EYE_COLOR = 1;
+    GREEN_EYE_COLOR = 2;
+    BROWN_EYE_COLOR = 3;
+    BLACK_EYE_COLOR = 4;
+}

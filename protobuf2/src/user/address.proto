@@ -1,0 +1,12 @@
+syntax = "proto3";
+package user;
+option go_package = "userpb";
+
+message Address {
+    int32 id = 1;
+    string address_lane_1 = 2;
+    string address_lane_2 = 3;
+    string city = 4;
+    string state = 5;
+    string zipcode = 6;
+}
