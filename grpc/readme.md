@@ -11,6 +11,13 @@ SHOULD NOT USE `--go-out=plugin` DONOT MISS THE `S`
 protoc greet/greetpb/greet.proto --go_out=plugins=grpc:.
 ```
 
+Observe how they are generated, example open `greet.pb.go` and you can see two sections 
+- client related stuff, observe the comments as
+    - // GreetServiceClient is the client API for GreetService service. 
+- server related stuff, observe the comments as 
+    - // GreetServiceServer is the server API for GreetService service.
+Under these sections you can copy paste, required methods to your implementation.     
+
 ### Steps
 - First create the proto required
 - Generate the go file using using protoc
