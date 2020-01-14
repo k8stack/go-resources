@@ -1,0 +1,16 @@
+syntax = "proto3";
+package user;
+option go_package = "userpb";
+
+import "address.proto";
+import "eyecolor.proto";
+
+message User {
+    int32 id = 1;
+    string username = 2;
+    string email = 3;
+    string password = 4;
+    repeated user.Address address = 5;
+    user.EyeColor eyeColor = 6;
+}
+
