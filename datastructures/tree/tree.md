@@ -3,8 +3,17 @@
 ## Table of Contents
 
 1.[Tree traversal Error with leetcode submission](#Tree-traversal-Error-with-leetcode-submission)
+2.[Traversal orders](#Traversal-orders]
 
-### Tree traversal Error with leetcode submission
+## Traversal orders
+
+You can think of order as the position of the `value` with respective to `left` and `right`
+
+- Preorder: value, left, right
+- Postorder: left, right, value
+- Inorder: left, value, right
+
+## Tree traversal Error with leetcode submission
 
 Avoid using global variables,
 [read more here](https://support.leetcode.com/hc/en-us/articles/360011834174-I-encountered-Wrong-Answer-Runtime-Error-for-a-specific-test-case-When-I-test-my-code-using-this-test-case-it-produced-the-correct-output-Why-)

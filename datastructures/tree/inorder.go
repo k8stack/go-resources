@@ -8,11 +8,11 @@ type Node struct {
 	right *Node
 }
 
-func preorder(root *Node) {
+func inorder(root *Node) {
 	if root != nil {
-		preorder(root.left)
+		inorder(root.left)
 		fmt.Print(root.value," ")
-		preorder(root.right)
+		inorder(root.right)
 	}
 }
 func main() {
@@ -34,6 +34,6 @@ func main() {
 	root.left.right = &Node{5, nil, nil}
 	root.right.right = &Node{6, nil, nil}
 	root.left.left.left = &Node{7, nil, nil}
-	preorder(root)
+	inorder(root)
 	fmt.Println()
 }
