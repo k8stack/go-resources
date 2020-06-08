@@ -14,22 +14,24 @@ func main(){
 	root.right = &Node{3, nil, nil}
 	root.left.left = &Node{4, nil, nil}
 	root.left.right = &Node{5, nil, nil}
-	s := preorder(root)
+    s := preodr(root)
 	fmt.Print(s)
 }
 
-func preorder(root *Node) []int{
+func preodr(root *Node) []int{
 	var result []int
 	do(root, &result)
 	return result
 }
 
 func do(root *Node, s *[]int) {
-        if root == nil { return }
+        if root == nil { 
+			return 
+		}
         *s = append(*s, root.val)
-	fmt.Println("result is: ", s)
-	fmt.Println("result is**: ", *s)
-	fmt.Println("root val is : ", root.val)
+	    fmt.Println("result is: ", s)
+	    fmt.Println("result is**: ", *s)
+	    fmt.Println("root val is : ", root.val)
         do(root.left,s)
         do(root.right,s)
 }

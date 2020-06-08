@@ -17,14 +17,14 @@ func preorder(root *Node) {
 }
 func main() {
 
-	/*
-		            1
+		/*
+		        1
 			   /  \
 			  2   3
 			/ \    \
-		       4   5    6
-		      /
-		     7
+		   4   5    6
+		   /
+		   7
 	*/
 
 	root := &Node{1, nil, nil}
