@@ -1,4 +1,4 @@
-# Golang interview questions
+# Golang Fundamentals
 
 ## Table of Contents
 
